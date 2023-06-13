@@ -11,14 +11,15 @@ provider "github" {
 provider "flux" {
   kubernetes = {
     config_path = "~/.kube/config"
-    context = "docker-desktop"
+    config_context = "docker-desktop"
   }
 
   git = {
     url = "ssh://git@github.com/${var.github_org}/${var.github_repository}.git"
 
     ssh = {
-      private_key = "~/.ssh/id_ed25519"
+      username = "git"
+      private_key = tls_private_key.flux.private_key_pem
     }
   }
 }
