@@ -19,17 +19,5 @@ spec:
   values:
     rbac:
       create: true
-    controller:
-      hostNetwork: true
-      hostPort:
-        enabled: true
-      service:
-        enabled: false
-      publishService:
-        enabled: true
-      metrics:
-        enabled: true
-        serviceMonitor:
-          enabled: true
       config:
         use-forwarded-headers: "true"
